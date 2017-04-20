@@ -19,7 +19,7 @@ namespace Microsoft.VisualStudio.Setup
     /// </summary>
     public class Instance
     {
-        private static readonly ISet<string> DeclaredProperties;
+        private static readonly HashSet<string> DeclaredProperties; // ISet<string>
 
         private readonly string installationName;
         private readonly string installationPath;
@@ -67,7 +67,7 @@ namespace Microsoft.VisualStudio.Setup
                     Version version;
 
                     var versionString = instance.GetInstallationVersion();
-                    if (Version.TryParse(versionString, out version))
+                    if (VersionExtensions.TryParse(versionString, out version))
                     {
                         return version.Normalize();
                     }

@@ -37,7 +37,7 @@ namespace Microsoft.VisualStudio.Setup
                 Version version;
 
                 var versionString = reference.GetVersion();
-                if (Version.TryParse(versionString, out version))
+                if (VersionExtensions.TryParse(versionString, out version))
                 {
                     return version;
                 }

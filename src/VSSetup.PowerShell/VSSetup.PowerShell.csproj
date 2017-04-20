@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Microsoft.VisualStudio.Setup</RootNamespace>
     <AssemblyName>Microsoft.VisualStudio.Setup.PowerShell</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <CodeAnalysisRuleSet>..\..\inc\Common.ruleset</CodeAnalysisRuleSet>
@@ -39,14 +40,15 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.PowerShell.3.ReferenceAssemblies.1.0.0\lib\net4\System.Management.Automation.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\choco\lib\PowerShell\System.Management.Automation.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="corlib\System\Action.cs" />
+    <Compile Include="corlib\System\Funcs.cs" />
+    <Compile Include="corlib\System\VersionExtensions.cs" />
     <Compile Include="Errors.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="FailedPackageReference.cs" />
@@ -67,6 +69,70 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="ReadOnlyDictionary.cs" />
+    <Compile Include="System.Core\System.Collections.Generic\HashSet.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\BinaryExpression.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\ConditionalExpression.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\ConstantExpression.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\ElementInit.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\EmitContext.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\Expression.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\ExpressionPrinter.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\ExpressionTransformer.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\ExpressionType.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\ExpressionVisitor.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\Expression_T.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\Extensions.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\InvocationExpression.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\LambdaExpression.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\ListInitExpression.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\MemberAssignment.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\MemberBinding.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\MemberBindingType.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\MemberExpression.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\MemberInitExpression.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\MemberListBinding.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\MemberMemberBinding.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\MethodCallExpression.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\NewArrayExpression.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\NewExpression.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\ParameterExpression.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\TypeBinaryExpression.cs" />
+    <Compile Include="System.Core\System.Linq.Expressions\UnaryExpression.cs" />
+    <Compile Include="System.Core\System.Linq\Check.cs" />
+    <Compile Include="System.Core\System.Linq\Enumerable.cs" />
+    <Compile Include="System.Core\System.Linq\EnumerableExecutor.cs" />
+    <Compile Include="System.Core\System.Linq\EnumerableExecutor_T.cs" />
+    <Compile Include="System.Core\System.Linq\EnumerableQuery.cs" />
+    <Compile Include="System.Core\System.Linq\EnumerableQuery_T.cs" />
+    <Compile Include="System.Core\System.Linq\Grouping.cs" />
+    <Compile Include="System.Core\System.Linq\IGrouping.cs" />
+    <Compile Include="System.Core\System.Linq\ILookup_T.cs" />
+    <Compile Include="System.Core\System.Linq\IOrderedEnumerable_T.cs" />
+    <Compile Include="System.Core\System.Linq\IOrderedQueryable.cs" />
+    <Compile Include="System.Core\System.Linq\IOrderedQueryable_T.cs" />
+    <Compile Include="System.Core\System.Linq\IQueryable.cs" />
+    <Compile Include="System.Core\System.Linq\IQueryable_T.cs" />
+    <Compile Include="System.Core\System.Linq\IQueryProvider.cs" />
+    <Compile Include="System.Core\System.Linq\Lookup.cs" />
+    <Compile Include="System.Core\System.Linq\OrderedEnumerable.cs" />
+    <Compile Include="System.Core\System.Linq\OrderedParallelQuery.cs" />
+    <Compile Include="System.Core\System.Linq\OrderedSequence.cs" />
+    <Compile Include="System.Core\System.Linq\ParallelEnumerable.cs" />
+    <Compile Include="System.Core\System.Linq\ParallelExecutionMode.cs" />
+    <Compile Include="System.Core\System.Linq\ParallelMergeOptions.cs" />
+    <Compile Include="System.Core\System.Linq\ParallelQuery.cs" />
+    <Compile Include="System.Core\System.Linq\Queryable.cs" />
+    <Compile Include="System.Core\System.Linq\QueryableEnumerable.cs" />
+    <Compile Include="System.Core\System.Linq\QueryableTransformer.cs" />
+    <Compile Include="System.Core\System.Linq\QuickSort.cs" />
+    <Compile Include="System.Core\System.Linq\SortContext.cs" />
+    <Compile Include="System.Core\System.Linq\SortDirection.cs" />
+    <Compile Include="System.Core\System.Linq\SortSequenceContext.cs" />
+    <Compile Include="System.Core\System.Runtime.CompilerServices\DynamicAttribute.cs" />
+    <Compile Include="System.Core\System.Runtime.CompilerServices\ExecutionScope.cs" />
+    <Compile Include="System.Core\System.Runtime.CompilerServices\ExtensionAttribute.cs" />
+    <Compile Include="System.Core\System.Runtime.CompilerServices\IStrongBox.cs" />
+    <Compile Include="System.Core\System.Runtime.CompilerServices\StrongBox_T.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="Validate.cs" />
   </ItemGroup>
